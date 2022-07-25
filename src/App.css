@@ -1,3 +1,83 @@
 * {
   box-sizing: border-box;
 }
+
+.layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 20px;
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.indicator {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 25px solid black;
+  position: absolute;
+  right: 50%;
+  top: 5px;
+  transform: translateX(43%);
+}
+
+.rotate {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.rotate:hover {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.15);
+  color: black;
+  background-color: white;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel {
+  width: 350px;
+  height: 350px;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 999px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  transition: cubic-bezier(0.19, 1, 0.22, 1) 5s;
+}
+
+.wheel__item {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid;
+  border-color: transparent;
+  transform-origin: 50% 100%;
+}
+
+.wheel__item > p {
+  position: absolute;
+  left: -15px;
+  top: -130px;
+}
